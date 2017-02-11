@@ -4,4 +4,4 @@
 
 ## Description
 
-Standalone authentification relay build on the top of the ORCID OAuth2 server
+Authentification App build on the top of the ORCID OAuth2 server
