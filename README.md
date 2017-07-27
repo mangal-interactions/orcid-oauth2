@@ -23,5 +23,5 @@ module.exports = config = {
 };
 ```
 
-### Then, one route to rule them all: localhost:3000/auth
+Then, one route to rule them all: `localhost:3000/auth`
 
