@@ -11,7 +11,7 @@ var app = express();
 
 // Config on express-session
 app.use(session({
-    secret: 'keyboard cat', // Set in ENV in production
+    secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -29,23 +29,22 @@ app.use(bodyParser.urlencoded({
 
 
 // Init Databases
-if (process.env.NODE_ENV == 'development') {
 
-    // test authentification
-    db.sequelize
-        .authenticate()
-        .then(function(success) {
-            console.log('Connection has been established successfully.');
-        })
-        .catch(function(err) {
-            console.log('Unable to connect to the database:', err);
-        });
-
-    // sync DB
-    db.sequelize.sync({
-        force: true
+// test authentification
+db.sequelize
+    .authenticate()
+    .then(function(success) {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(function(err) {
+        console.log('Unable to connect to the database:', err);
     });
 
+// sync DB
+if (process.env.NODE_ENV == 'development') {
+  db.sequelize.sync({
+      force: true
+  });
 };
 
 // Init oauth middleware
@@ -54,8 +53,8 @@ require('./oauth')(passport);
 // Basic oauth routes set in orcid URI callback
 app.get('/auth', passport.authenticate('oauth2'));
 app.get('/auth/callback', passport.authenticate('oauth2', {
-    successRedirect: '/success',
-    failureRedirect: '/login'
+    successRedirect: '/auth/success',
+    failureRedirect: '/auth/failed'
 }));
 
 // start server
