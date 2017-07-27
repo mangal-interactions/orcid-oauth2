@@ -1,22 +1,15 @@
 {
   "name": "orcid-oauth2",
   "version": "0.0.1",
-  "description": "Authentification relay build on the top of ORCID Oauth2 server",
+  "description": "Local storage for ORCID authentification server",
   "main": "index.js",
-  "scripts": {
-    "deploy_db": "createdb oauth_dev;",
-    "test": "NODE_ENV=test node_modules/.bin/mocha",
-    "start": "NODE_ENV=development nodemon"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mangal-wg/orcid-oauth2.git"
   },
   "scripts": {
-    "deploy_db": "createdb oauth_dev;",
-    "drop_db": "dropdb oauth_dev --if-exists;",
     "test": "NODE_ENV=test node_modules/.bin/mocha",
-    "start": "NODE_ENV=development nodemon"
+    "start": "nodemon"
   },
   "keywords": [
     "ORCID"
@@ -29,7 +22,6 @@
   "homepage": "https://github.com/mangal-wg/orcid-oauth2#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "epilogue": "^0.7.0",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "http": "0.0.0",
