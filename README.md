@@ -6,18 +6,12 @@ Persistent storage for ORCID authentification server.
 
 # Getting started
 
-## 0. Install postgreSQL >=9.3
+0. Install `postgreSQL >=9.3`
+1. Install the node dependencies with `npm intall`
+2. Set your database in `config/db.json`
+3. Write your credentials (ORCID's client) in `config/oauth.js`:
 
-## 1. Install the node dependencies:
-
-```bash
-  npm intall
-```
-
-## 2. Set your database in `config/db.json`
-
-## 3. Write your credentials (ORCID's client) in `config/oauth.js`:
-
+```javascript
 module.exports = config = {
   authorizationURL: 'https://orcid.org/oauth/authorize',
   clientID: YOUR_CLIENT_ID,
@@ -27,4 +21,4 @@ module.exports = config = {
   scope: '/authenticate',
   passReqToCallback: true
 };
-
+```
