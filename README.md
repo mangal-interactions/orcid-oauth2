@@ -22,3 +22,6 @@ module.exports = config = {
   passReqToCallback: true
 };
 ```
+
+### Then, one route to rule them all: localhost:3000/auth
+
