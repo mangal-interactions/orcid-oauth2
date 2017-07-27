@@ -10,7 +10,6 @@ module.exports = function(passport) {
   // configure oauth2 strategy for orcid use
   const oauth2 = new OAuth2Strategy(conf,
     function(req, accessToken, refreshToken, params, profile, cb) {
-      console.log(params);
       db.user.findOrCreate({
           where: {
             name: params.name,
@@ -19,10 +18,10 @@ module.exports = function(passport) {
           }
         })
         .spread(function(user, created) {
-          console.log(user.get({
+          // console.log(user.get({
             plain: true
           }));
-          console.log(created);
+          // console.log(created);
           return cb(null, user);
         });
     });
