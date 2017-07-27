@@ -19,8 +19,8 @@ module.exports = function(passport) {
         })
         .spread(function(user, created) {
           // console.log(user.get({
-            plain: true
-          }));
+          //   plain: true
+          // }));
           // console.log(created);
           return cb(null, user);
         });
