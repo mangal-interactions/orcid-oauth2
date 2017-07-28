@@ -5,24 +5,19 @@ const db = require('../models');
 
 
 module.exports = function(passport) {
-
   // Set Authentification Strategy
   // configure oauth2 strategy for orcid use
   const oauth2 = new OAuth2Strategy(conf,
-    function(req, accessToken, refreshToken, params, profile, cb) {
-      db.user.findOrCreate({
+    function(req, accessToken, refreshToken, profile, params, done) {
+      var user = db.user.findOrCreate({
           where: {
-            name: params.name,
-            orcid: params.orcid,
-            access_token: params.access_token
+            name: profile.name,
+            orcid: profile.orcid,
+            access_token: profile.access_token
           }
         })
         .spread(function(user, created) {
-          // console.log(user.get({
-          //   plain: true
-          // }));
-          // console.log(created);
-          return cb(null, user);
+          return done(null, user);
         });
     });
 
