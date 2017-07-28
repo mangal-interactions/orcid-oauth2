@@ -50,12 +50,31 @@ if (process.env.NODE_ENV == 'development') {
 // Init oauth middleware
 require('./oauth')(passport);
 
-// Basic oauth routes set in orcid URI callback
+// Basic oauth routes
 app.get('/auth', passport.authenticate('oauth2'));
 app.get('/auth/callback', passport.authenticate('oauth2', {
-    successRedirect: '/auth/success',
+    successRedirect: '/auth/profile',
     failureRedirect: '/auth/failed'
 }));
+
+app.get('/auth/profile', function(req,res){
+  console.log(req.user);
+  if(typeof req.user === 'undefined'){
+    res.status(204).send('No user profile');
+  } else {
+    res.status(200).json(req.user);
+  };
+});
+
+app.get('/auth/failed', function(req,res){
+  res.status(403).send('Authorization denied by user');
+});
+
+app.get('/auth/logout', function(req,res){
+  req.logout();
+  res.redirect('/auth');
+  // NOTE: Clear the app session, but not the ORCID session.
+});
 
 // start server
 var port = process.env.PORT || 3000;
