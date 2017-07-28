@@ -23,5 +23,7 @@ module.exports = config = {
 ```
 4. `npm start`
 
+Don't forget to change the status of your environment with the variable `$NODE_ENV`
+
 Then, one route to rule them all: `localhost:3000/auth`
 
