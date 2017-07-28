@@ -4,19 +4,18 @@ module.exports = function(sequelize, DataTypes) {
     var user = sequelize.define('user', {
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         orcid: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            unique: true
         },
         organization: {
             type: DataTypes.STRING
         },
         access_token: {
             type: DataTypes.STRING
-        },
-        expired_in: {
-            type: DataTypes.INTEGER
         },
         type: {
             type: DataTypes.ENUM,
