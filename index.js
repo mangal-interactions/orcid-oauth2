@@ -77,7 +77,7 @@ app.get('/auth/logout', function(req,res){
 });
 
 // start server
-var port = process.env.PORT || 3000;
+var port = process.env.PORT_MANGAL_OAUTH || 3000;
 server = http.createServer(app);
 server.listen(port);
 
