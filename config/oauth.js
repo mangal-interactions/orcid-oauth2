@@ -4,7 +4,7 @@ module.exports = config = {
   clientID: process.env.ORCID_CLIENTID,
   clientSecret: process.env.ORCID_CLIENTSECRET,
   tokenURL: 'https://pub.orcid.org/oauth/token',
-  callbackURL: 'http://localhost:3000/auth/callback',
+  callbackURL: process.env.ORCID_CALLBACK,
   scope: '/authenticate',
   passReqToCallback: true
 };
