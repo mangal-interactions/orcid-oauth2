@@ -1,14 +1,12 @@
 {
   "development": {
     "username": "mangal_bot",
-    "password": null,
     "database": "mangal_dev",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },
   "production": {
     "username": "mangal_bot",
-    "password": null,
     "database": "mangal",
     "host": "127.0.0.1",
     "dialect": "postgresql"
