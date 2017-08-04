@@ -1,7 +1,7 @@
 var conf = require('../config/oauth');
 var passport = require('passport')
 var OAuth2Strategy = require('passport-oauth2').Strategy
-const db = require('../models');
+var db = require('../models');
 
 
 module.exports = function(passport) {
