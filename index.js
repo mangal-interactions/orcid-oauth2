@@ -41,11 +41,7 @@ db.sequelize
     });
 
 // sync DB
-if (process.env.NODE_ENV == 'development') {
-  db.sequelize.sync({
-      force: true
-  });
-};
+db.sequelize.sync({force: true});
 
 // Init oauth middleware
 require('./oauth')(passport);
