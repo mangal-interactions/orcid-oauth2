@@ -11,9 +11,12 @@ module.exports = function(passport) {
     function(req, accessToken, refreshToken, profile, params, done) {
       var user = db.users.findOrCreate({
           where: {
-            name: profile.name,
-            orcid: profile.orcid,
-            access_token: profile.access_token
+            orcid: profile.orcid
+
+          },
+          defaults: {
+            access_token: profile.access_token,
+            name: profile.name
           }
         })
         .spread(function(user, created) {
