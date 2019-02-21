@@ -9,7 +9,7 @@ module.exports = function(passport) {
   // configure oauth2 strategy for orcid use
   const oauth2 = new OAuth2Strategy(conf,
     function(req, accessToken, refreshToken, profile, params, done) {
-      var user = db.user.findOrCreate({
+      var user = db.users.findOrCreate({
           where: {
             name: profile.name,
             orcid: profile.orcid,

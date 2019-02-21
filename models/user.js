@@ -1,11 +1,17 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-    var user = sequelize.define('user', {
+    var users = sequelize.define('users', {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            isUrl: true,
+            comment: "email of the user"
         },
         orcid: {
             type: DataTypes.STRING,
@@ -32,6 +38,6 @@ module.exports = function(sequelize, DataTypes) {
         underscored: true
     })
 
-    return user
+    return users
 
 };
