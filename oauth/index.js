@@ -32,7 +32,7 @@ module.exports = function(passport) {
   });
 
   passport.deserializeUser(function(id, cb) { // retrieve id from cookie and perform id request on user table
-    db.user.findById(id).then(function(profile) {
+    db.users.findById(id).then(function(profile) {
       var user = profile.get({
         plain: true
       });
