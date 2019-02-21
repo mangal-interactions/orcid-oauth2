@@ -41,7 +41,7 @@ db.sequelize
     });
 
 // sync DB
-db.sequelize.sync({force: true});
+db.sequelize.sync();
 
 // Init oauth middleware
 require('./oauth')(passport);
